@@ -1,4 +1,5 @@
 public class Acceptor {
+	
 	private Messenger messenger;
 	private Integer currentProposalNumber;
 	private Integer acceptedId;
@@ -19,6 +20,7 @@ public class Acceptor {
 		String proposerAddress = proposal.getProposalIpAddress();
 		if(proposalId < currentProposalNumber) {
 	        //still send back acccept id and value
+			//TODO - use packet instead. add data to packet for acceptedId and acceptedValue
 			messenger.sendRejection(proposerAddress, currentProposalNumber, acceptedId, acceptedValue);
 		} else {
 			if(proposalId > currentProposalNumber) {
